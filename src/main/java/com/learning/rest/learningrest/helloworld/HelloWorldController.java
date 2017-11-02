@@ -1,4 +1,4 @@
-package com.learning.rest.learningrest;
+package com.learning.rest.learningrest.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

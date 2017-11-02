@@ -1,4 +1,4 @@
-package com.learning.rest.learningrest;
+package com.learning.rest.learningrest.helloworld;
 
 public class HelloWorldBean {
 	
