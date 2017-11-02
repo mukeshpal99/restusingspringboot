@@ -28,7 +28,13 @@ public class UserResource {
 	// method to retireve user
 	@GetMapping("/user/{id}")
 	public User getUser(@PathVariable int id){
-		return userDao.getUser(id);
+		User user= userDao.getUser(id);
+		
+		if(user == null){
+			throw new UserNotFoundException("id-"+id);
+		}
+		
+		return user;
 	}
 	
 	@PostMapping("/user")
@@ -41,6 +47,7 @@ public class UserResource {
 						.buildAndExpand(createdUser.getId()).toUri();
 		
 		return ResponseEntity.created(location).build();
+		
 								
 							
 	}
