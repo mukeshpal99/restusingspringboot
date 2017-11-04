@@ -1,4 +1,4 @@
-package exception;
+package com.learning.rest.learningrest.exception;
 
 import java.util.Date;
 
