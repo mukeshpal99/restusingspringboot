@@ -6,6 +6,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,14 +35,20 @@ public class UserResource {
 	
 	// method to retireve user
 	@GetMapping("/user/{id}")
-	public User getUser(@PathVariable int id){
+	public Resource getUser(@PathVariable int id){
 		User user= userDao.getUser(id);
 		
 		if(user == null){
 			throw new UserNotFoundException("id-"+id);
 		}
 		
-		return user;
+		//HATEOAS add link to other resouces in this service response
+		
+		Resource<User> resource = new Resource<User>(user);
+		ControllerLinkBuilder linkTo= ControllerLinkBuilder.linkTo(methodOn(this.getClass()).getALlUsers());
+		resource.add(linkTo.withRel("all-users"));
+		
+		return resource;
 	}
 	
 	@PostMapping("/user")
