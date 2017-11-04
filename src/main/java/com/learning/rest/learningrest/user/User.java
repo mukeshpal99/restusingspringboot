@@ -2,10 +2,17 @@ package com.learning.rest.learningrest.user;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private int id;
+	
+	@Size(min=3, message="Name should have at least 3 character")
 	private String name;
+	
+	@Past (message="Date should be in past")
 	private Date BirthDate;
 	
 	
@@ -23,6 +30,7 @@ public class User {
 		BirthDate = birthDate;
 	}
 	
+
 	public User() {	}
 	
 	public int getId() {

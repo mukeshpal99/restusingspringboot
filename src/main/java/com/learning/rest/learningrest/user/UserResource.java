@@ -3,6 +3,8 @@ package com.learning.rest.learningrest.user;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,7 +41,7 @@ public class UserResource {
 	}
 	
 	@PostMapping("/user")
-	public ResponseEntity<User> createUser(@RequestBody User user){
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user){
 		User createdUser= userDao.addUser(user);
 		
 		URI location = ServletUriComponentsBuilder
