@@ -2,6 +2,11 @@ package com.learning.rest.learningrest.exception;
 
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter 
+@Setter
 public class ExceptionResponse {
 	//time stamp
 	//exception message
@@ -20,29 +25,29 @@ public class ExceptionResponse {
 		
 	}
 
-	public Date getTimeStamp() {
-		return timeStamp;
-	}
-
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getDetails() {
-		return details;
-	}
-
-	public void setDetails(String details) {
-		this.details = details;
-	}
+//	public Date getTimeStamp() {
+//		return timeStamp;
+//	}
+//
+//	public void setTimeStamp(Date timeStamp) {
+//		this.timeStamp = timeStamp;
+//	}
+//
+//	public String getMessage() {
+//		return message;
+//	}
+//
+//	public void setMessage(String message) {
+//		this.message = message;
+//	}
+//
+//	public String getDetails() {
+//		return details;
+//	}
+//
+//	public void setDetails(String details) {
+//		this.details = details;
+//	}
 	
 	
 
